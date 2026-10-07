@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abetarja & Leximi i Arabishtes 🌟 | Mëso Shkronjat, Rregullat & 500 Fjalë</title>
+    <meta name="description" content="Aplikacion ndërveprues për fëmijë për mësimin e alfabetit arab, rregullave të Tajweedit dhe leximit të rrjedhshëm me 500 fjalë ushtruese me zë.">
+    
+    <!-- Google Fonts for Friendly Typography and Crisp Arabic Script -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;700;900&family=Tajawal:wght@500;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Canvas for Confetti & Celebration Effects -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Animated Background Bubbles -->
+    <div class="background-decorations">
+        <div class="bubble b1"></div>
+        <div class="bubble b2"></div>
+        <div class="bubble b3"></div>
+        <div class="bubble b4"></div>
+        <div class="bubble b5"></div>
+        <div class="star-sparkle s1">⭐</div>
+        <div class="star-sparkle s2">✨</div>
+        <div class="star-sparkle s3">🌟</div>
+    </div>
+
+    <!-- Header Navigation Bar -->
+    <header class="app-header">
+        <div class="logo-container" id="logo-home-btn" style="cursor: pointer;">
+            <span class="logo-icon">🎈</span>
+            <div class="logo-text">
+                <h1>Abetarja & Leximi Arabisht</h1>
+                <span class="subtitle">Mëso shkronjat, rregullat & lexo rrjedhshëm!</span>
+            </div>
+        </div>
+
+        <nav class="nav-tabs">
+            <button class="nav-btn active" data-tab="home-tab">
+                <span class="btn-icon">🏠</span> Ballina
+            </button>
+            <button class="nav-btn" data-tab="letters-tab">
+                <span class="btn-icon">🔤</span> Abetarja
+            </button>
+            <button class="nav-btn" data-tab="rules-tab">
+                <span class="btn-icon">📖</span> Rregullat
+            </button>
+            <button class="nav-btn" data-tab="fluent-tab">
+                <span class="btn-icon">🚀</span> Lexim i Rrjedhshëm
+            </button>
+
+            <button class="nav-btn" data-tab="games-tab">
+                <span class="btn-icon">🎮</span> Lojërat
+            </button>
+            <button class="nav-btn" data-tab="stars-tab">
+                <span class="btn-icon">🏆</span> Yjet
+            </button>
+        </nav>
+
+        <div class="score-badge" title="Yjet e fituara!">
+            <span class="star-icon">⭐</span>
+            <span id="user-stars-count">0</span>
+        </div>
+    </header>
+
+    <main class="main-content">
+
+        <!-- TAB 0: HOME DASHBOARD (TRI KUTITË KRYESORE) -->
+        <section id="home-tab" class="tab-content active">
+            <div class="hero-welcome">
+                <div class="mascot-box hero-mascot">
+                    <span class="mascot">🦁</span>
+                    <div class="speech-bubble">
+                        <p>Mirëseerdhe! Zgjidh njërën nga 3 kutitë për të filluar mësimin e arabishtes me dëshirë! 🌟</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TRI KUTITË KRYESORE -->
+            <div class="three-boxes-grid">
+                
+                <!-- KUTIA 1: ABETARJA -->
+                <div class="main-portal-card box-1" id="btn-portal-box-1">
+                    <div class="portal-badge">Kutia 1</div>
+                    <div class="portal-icon">🔤</div>
+                    <h2>Abetarja Arabe</h2>
+                    <span class="arabic-preview-sub">أ ب ت ث ج ح خ...</span>
+                    <p>Mëso 28 shkronjat e alfabetit, format e tyre (Veçmas, Fillim, Mes, Fund), dëgjo audion me tajweed dhe vizato mbi tabelën magjike!</p>
+                    <button class="portal-action-btn btn-b1">Hap Abetaren 🎨</button>
+                </div>
+
+                <!-- KUTIA 2: RREGULLAT E LEXIMIT -->
+                <div class="main-portal-card box-2" id="btn-portal-box-2">
+                    <div class="portal-badge">Kutia 2</div>
+                    <div class="portal-icon">📖</div>
+                    <h2>Rregullat e Leximit</h2>
+                    <span class="arabic-preview-sub">الْمَدُّ • السُّكُونُ • التَّشْدِيدُ</span>
+                    <p>Mëso 8 rregullat kryesore (Zanoret, Sukunin, Teshdidin, Tenwinin, Kalkalen, Lam-Ta'rifin & Lafdhul-Xhelalit) me nga 10 fjalë ushtruese me 4-5 shkronja për secilin!</p>
+                    <button class="portal-action-btn btn-b2">Mëso Rregullat 📚</button>
+                </div>
+
+                <!-- KUTIA 3: LEXIM I RRJEDHSHËM (500 FJALË) -->
+                <div class="main-portal-card box-3" id="btn-portal-box-3">
+                    <div class="portal-badge">Kutia 3</div>
+                    <div class="portal-icon">🚀</div>
+                    <h2>Lexim i Rrjedhshëm</h2>
+                    <span class="arabic-preview-sub">500 Fjalë me Audio 🔊</span>
+                    <p>Ushtro leximin e rrjedhshëm me 500 fjalë arabe unike të ndara sipas 5 niveleve me zë, ndarje në rrokje dhe përkthim në shqip!</p>
+                    <button class="portal-action-btn btn-b3">Bëhu Lexues i Rrjedhshëm 🎯</button>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- TAB 1: ALPHABET GRID -->
+        <section id="letters-tab" class="tab-content">
+            <div class="section-intro">
+                <div class="mascot-box">
+                    <span class="mascot">🦁</span>
+                    <div class="speech-bubble">
+                        <p id="mascot-message">Shtyp mbi çdo shkronjë për të parë format (fillim, mes, fund) dhe për ta vizatuar! 🎨</p>
+                    </div>
+                </div>
+                <div class="filter-controls">
+                    <input type="text" id="search-alphabet" placeholder="Kërko shkronjën ose fjalën... 🔍">
+                    <button id="btn-play-all" class="action-pill-btn">
+                        <span>▶️</span> Dëgjo të gjitha
+                    </button>
+                    <button id="btn-stop-all" class="action-pill-btn btn-stop-danger" style="display: none;">
+                        <span>⏹️</span> Ndalo
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grid of 28 Arabic Letters -->
+            <div class="alphabet-grid" id="alphabet-grid">
+                <!-- Dynamic cards rendered by JS -->
+            </div>
+        </section>
+
+
+        <!-- TAB 2: TAJWEED & READING RULES (KUTIA 2) -->
+        <section id="rules-tab" class="tab-content">
+            <div class="rules-header">
+                <h2>📖 Rregullat e Leximit të Arabishtes</h2>
+                <p>Zgjidh një leksion për të mësuar rregullin dhe ushtro me 10 fjalë praktike me nga 4-5 shkronja!</p>
+            </div>
+
+            <!-- List of 8 Tajweed Rule Modules -->
+            <div class="rules-modules-grid" id="rules-modules-container">
+                <!-- Rendered dynamically by JS -->
+            </div>
+        </section>
+
+
+        <!-- TAB 3: FLUENT READING (500 WORDS) (KUTIA 3) -->
+        <section id="fluent-tab" class="tab-content">
+            <div class="fluent-header">
+                <h2>🚀 Ushtrime për Lexim të Rrjedhshëm (500 Fjalë Unike)</h2>
+                <p>Zgjidh nivelin tënd dhe ushtro leximin me zë për secilën fjalë!</p>
+
+                <!-- Level Selector Tabs -->
+                <div class="level-tabs-bar" id="fluent-level-tabs">
+                    <button class="level-tab-btn active" data-level="1">Niveli 1 (100 Fjalë 3-shkronjëshe)</button>
+                    <button class="level-tab-btn" data-level="2">Niveli 2 (100 Fjalë Sukun & Medd)</button>
+                    <button class="level-tab-btn" data-level="3">Niveli 3 (100 Fjalë Teshdid & Tenwin)</button>
+                    <button class="level-tab-btn" data-level="4">Niveli 4 (100 Fjalë me Lam-Ta'rif)</button>
+                    <button class="level-tab-btn" data-level="5">Niveli 5 (100 Fjalë & Fjali me Tajweed)</button>
+                </div>
+
+                <div class="fluent-search-bar">
+                    <input type="text" id="fluent-search-input" placeholder="Kërko fjalën në arabisht apo shqip... 🔍">
+                </div>
+            </div>
+
+            <!-- 500 Words Grid -->
+            <div class="fluent-words-grid" id="fluent-words-container">
+                <!-- Rendered by JS -->
+            </div>
+        </section>
+
+
+        <!-- TAB 4: MINI GAMES -->
+        <section id="games-tab" class="tab-content">
+            <div class="games-menu">
+                <h2>Zgjidh një lojë zbavitëse! 🎲</h2>
+                <div class="game-cards-container">
+                    <div class="game-select-card" id="select-game-quiz">
+                        <div class="game-card-icon">❓</div>
+                        <h3>Gjej Shkronjën</h3>
+                        <p>Dëgjo zërin dhe gjej shkronjën e saktë!</p>
+                        <button class="play-game-btn">Fillo Lojën 🎯</button>
+                    </div>
+
+                    <div class="game-select-card" id="select-game-match">
+                        <div class="game-card-icon">🧩</div>
+                        <h3>Lidh me Figurën</h3>
+                        <p>Lidh shkronjën me kafshën apo figurën e saj!</p>
+                        <button class="play-game-btn">Fillo Lojën 🚀</button>
+                    </div>
+
+                    <div class="game-select-card" id="select-game-memory">
+                        <div class="game-card-icon">🃏</div>
+                        <h3>Karta Memorie</h3>
+                        <p>Kthe kartat dhe gjej çiftet me shkronja!</p>
+                        <button class="play-game-btn">Fillo Lojën 🧠</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game View Containers -->
+            <div class="active-game-area" id="active-game-area" style="display: none;">
+                <button class="back-to-games-btn" id="btn-back-games">⬅️ Prapa te Lojërat</button>
+
+                <!-- Game 1: Quiz -->
+                <div id="game-quiz-view" class="sub-game-view" style="display: none;">
+                    <div class="game-header-box">
+                        <div class="game-level-info">Pyetja <span id="quiz-q-num">1</span> / 10</div>
+                        <div class="game-score-info">Pikët: <span id="quiz-score">0</span> 🌟</div>
+                    </div>
+
+                    <div class="quiz-question-box">
+                        <button class="audio-prompt-btn" id="btn-play-quiz-audio">
+                            🔊 Dëgjo Shkronjën!
+                        </button>
+                        <p class="quiz-hint">Shtyp butonin për të dëgjuar, pastaj zgjidh shkronjën më poshtë:</p>
+                    </div>
+
+                    <div class="quiz-options-grid" id="quiz-options-container">
+                        <!-- Options generated by JS -->
+                    </div>
+                </div>
+
+                <!-- Game 2: Match -->
+                <div id="game-match-view" class="sub-game-view" style="display: none;">
+                    <div class="game-header-box">
+                        <div class="game-level-info">Lidhja e Figurave</div>
+                        <div class="game-score-info">Pikët: <span id="match-score">0</span> 🌟</div>
+                    </div>
+                    <p class="game-instruction">Klikoni mbi shkronjën dhe pastaj mbi figurën përkatëse!</p>
+
+                    <div class="matching-container">
+                        <div class="matching-column" id="match-letters-col"></div>
+                        <div class="matching-column" id="match-pictures-col"></div>
+                    </div>
+                </div>
+
+                <!-- Game 3: Memory -->
+                <div id="game-memory-view" class="sub-game-view" style="display: none;">
+                    <div class="game-header-box">
+                        <div class="game-level-info">Gjej Çiftet</div>
+                        <div class="game-score-info">Provat: <span id="memory-moves">0</span></div>
+                    </div>
+                    <div class="memory-grid" id="memory-grid-container"></div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- TAB 5: STARS & BADGES -->
+        <section id="stars-tab" class="tab-content">
+            <div class="achievements-container">
+                <div class="trophy-hero">
+                    <span class="hero-trophy-icon">🏆</span>
+                    <h2>Dhoma e Trofeve tuaja!</h2>
+                    <p>Këtu mund të shohësh shkronjat që ke mësuar dhe yjet e fituara!</p>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-fill" id="stars-progress-fill"></div>
+                    </div>
+                    <span class="progress-text" id="stars-progress-text">0 nga 28 shkronja të mësuara</span>
+                </div>
+
+                <div class="badges-grid" id="badges-grid-container">
+                    <!-- Badges rendered by JS -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- LETTER DETAIL & TRACING MODAL -->
+    <div class="modal-overlay" id="letter-modal">
+        <div class="modal-card">
+            <button class="close-modal-btn" id="btn-close-modal">✖</button>
+            
+            <div class="modal-body">
+                <!-- Left Column: Letter Info, Forms & Audio -->
+                <div class="letter-info-section">
+                    <div class="big-letter-display" id="modal-arabic-letter">أ</div>
+                    <div class="letter-names">
+                        <h2 id="modal-letter-name">Alif</h2>
+                        <div class="arabic-word-card">
+                            <span class="word-emoji" id="modal-word-emoji">🐇</span>
+                            <div class="word-text-group">
+                                <span class="arabic-word" id="modal-word-arabic">أَرْنَب</span>
+                                <span class="alb-word" id="modal-word-alb">Arnab (Lepur)</span>
+                            </div>
+                            <button class="speak-word-btn" id="btn-speak-modal-word">🔊 Dëgjo</button>
+                        </div>
+                    </div>
+
+                    <!-- Letter Forms Section (Fillim, Mes, Fund) -->
+                    <div class="forms-section">
+                        <h3>Format e Shkronjës në Fjalë:</h3>
+                        <div class="forms-grid">
+                            <div class="form-box" id="box-form-isolated">
+                                <span class="form-symbol" id="form-isolated">أ</span>
+                                <span class="form-label">Veçmas</span>
+                            </div>
+                            <div class="form-box" id="box-form-initial">
+                                <span class="form-symbol" id="form-initial">أـ</span>
+                                <span class="form-label">Fillim</span>
+                            </div>
+                            <div class="form-box" id="box-form-medial">
+                                <span class="form-symbol" id="form-medial">ـأـ</span>
+                                <span class="form-label">Mes</span>
+                            </div>
+                            <div class="form-box" id="box-form-final">
+                                <span class="form-symbol" id="form-final">ـأ</span>
+                                <span class="form-label">Fund</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Harakat (Vowels) Section -->
+                    <div class="harakat-section">
+                        <h3>Harakatet (Zanoret):</h3>
+                        <div class="harakat-buttons">
+                            <button class="harakat-btn" id="h-fatha">
+                                <span class="h-symbol" id="h-symbol-fatha">أَ</span>
+                                <span class="h-label">Fatha (A)</span>
+                            </button>
+                            <button class="harakat-btn" id="h-damma">
+                                <span class="h-symbol" id="h-symbol-damma">أُ</span>
+                                <span class="h-label">Damma (U)</span>
+                            </button>
+                            <button class="harakat-btn" id="h-kasra">
+                                <span class="h-symbol" id="h-symbol-kasra">إِ</span>
+                                <span class="h-label">Kasra (I)</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Canvas for Tracing/Drawing -->
+                <div class="tracing-section">
+                    <div class="tracing-header">
+                        <h3>Vizato & Gjurmo Shkronjën! 🎨</h3>
+                        <div class="tracing-toolbar">
+                            <button class="color-dot active" style="background-color: #ff4757;" data-color="#ff4757"></button>
+                            <button class="color-dot" style="background-color: #2ed573;" data-color="#2ed573"></button>
+                            <button class="color-dot" style="background-color: #1e90ff;" data-color="#1e90ff"></button>
+                            <button class="color-dot" style="background-color: #ffa502;" data-color="#ffa502"></button>
+                            <button class="color-dot" style="background-color: #9b59b6;" data-color="#9b59b6"></button>
+                            
+                            <button class="clear-canvas-btn" id="btn-clear-canvas">🧹 Fshi</button>
+                        </div>
+                    </div>
+
+                    <div class="canvas-wrapper">
+                        <canvas id="tracing-canvas" width="360" height="300"></canvas>
+                        <div class="canvas-watermark" id="canvas-guide-letter">أ</div>
+                    </div>
+
+                    <div class="tracing-footer">
+                        <button class="finish-tracing-btn" id="btn-mark-learned">
+                            ⭐ E mësova këtë shkronjë!
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
